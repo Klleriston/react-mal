@@ -6,5 +6,4 @@ const axiosInstance = axios.create({
 });
 
 export const getGenreList = () => axiosInstance.get('/genres/anime');
-
-export const getAllAnimes = () => axiosInstance.get('/seasons/now')
+export const getAllAnimes = () => axiosInstance.get('/seasons/now');

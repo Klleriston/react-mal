@@ -19,29 +19,28 @@ export function Video({ animeTrailler }: { animeTrailler: AnimeTrailer }) {
   return (
     <div className="flex flex-col lg:flex-row m-4">
       <div className="flex flex-col lg:w-1/2">
-        <h1 className="text-2xl lg:text-4xl font-bold dark:text-white mt-2">
+        <h1 className="text-2xl lg:text-4xl font-bold dark:text-white mt-2 font-mono">
           {animeTrailler.title_english} ({animeTrailler.title_japanese})
         </h1>
-        <h2 className="font-bold dark:text-white mt-2">
+        <h2 className="font-bold dark:text-white mt-2 font-mono">
           Episodes: {animeTrailler.episodes}
         </h2>
-        <h3 className="font-bold dark:text-white mt-2 break-words">
-            Popularity: {animeTrailler.popularity}%
+        <h3 className="font-bold dark:text-white mt-2 break-words font-mono">
+          Popularity: {animeTrailler.popularity}%
         </h3>
-        <h3 className="font-bold dark:text-white mt-2 break-words">
+        <h3 className="font-bold dark:text-white mt-2 break-words font-mono">
           Synopsis: {animeTrailler.synopsis}
         </h3>
-        
-
       </div>
+      
       <div className="flex justify-center lg:w-1/2">
-      <iframe
-        className="bsolute top-0 h-[500px] w-[1000px] flex rounded-3xl"
-        src={`https://www.youtube.com/embed/${animeTrailler.trailer.youtube_id}`}
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
-      ></iframe>
-    </div>
+        <iframe
+          className="bsolute top-0 h-[500px] w-[1000px] flex rounded-3xl"
+          src={`https://www.youtube.com/embed/${animeTrailler.trailer.youtube_id}`}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        ></iframe>
+      </div>
     </div>
   );
 }

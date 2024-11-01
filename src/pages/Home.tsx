@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 import { Genre } from "../components/Genre";
 import { getAllAnimes } from "../services/GlobalApi";
 import { Video } from "../components/Video";
+import { Animes } from "../components/Animes";
 
 export default function Home() {
     const [allAnimeList, setAllAnimeList] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-
     useEffect(() => {
         const fetchAnimeList = async () => {
             const cachedData = localStorage.getItem("animeList");
@@ -30,21 +30,24 @@ export default function Home() {
     }, []);
 
     return (
-        <div className="flex px-8">
+        <div className="flex flex-col md:flex-row px-8">
             <div className="h-full hidden md:block">
-                <Genre />
+                <Genre/>
+
             </div>
-            <div className="h-full w-full align-middle flex">
+
+            <div className="h-full w-full align-middle flex flex-col items-center">
                 {isLoading ? (
                     <p>Carregando...</p>
                 ) : (
-                    allAnimeList?.length > 0 && <Video animeTrailler={allAnimeList[0]} />
+                    allAnimeList?.length > 0 && (
+                        <div className="flex flex-col items-center">
+                            <Video animeTrailler={allAnimeList[0]} />
+                        </div>
+                    )
                 )}
+                <Animes animeList={allAnimeList} />
             </div>
-            <div>
-               
-            </div>
-            
         </div>
     );
 }
